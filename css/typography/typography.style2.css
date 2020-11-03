@@ -166,7 +166,7 @@ ul.gkSquare2,
 ul.gkSquare3,
 div.articleContent ul,
 #k2Container .itemFullText ul,
-#k2Container .itemIntroText ul {
+#k2Container .itemIntroText ul{
 	margin: 2em 0;
 	padding: 0;
 }

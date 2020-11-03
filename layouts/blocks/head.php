@@ -26,6 +26,26 @@ if($this->API->get('typography', '1') == '1') {
 	}
 }
 
+/* AND */
+
+jimport( 'joomla.application.module.helper' );
+
+$my_module_settings = new JRegistry();
+
+$my_module_settings->loadString( JModuleHelper::getModule('mod_kunenalatest')->params );
+if( $my_module_settings->get('kunena_load_css', 0) != '1'  ) {
+	$this->API->addCSS('/modules/mod_kunenalatest/tmpl/css/kunenalatest.css');
+}
+
+$my_module_settings->loadString( JModuleHelper::getModule('mod_slogin')->params );
+if( $my_module_settings->get('load_css', 1) != '0'  ) {
+	$this->API->addCSS('/modules/mod_slogin/tmpl/default/slogin.min.css');
+}
+
+$my_module_settings = null;
+
+/* AND */
+
 if($this->API->get("css_override", '0')) {
 	$this->API->addCSS($this->API->URLtemplate() . '/css/override.css');
 }
@@ -56,16 +76,17 @@ while($this->API->get('font_name_group'.$font_iter, 'gkFontNull') !== 'gkFontNul
                } elseif($font_type == 'squirrel') {
                     $this->API->addCSS($this->API->URLtemplate() . '/fonts/' . $font_name . '/stylesheet.css');
                     $this->API->addCSSRule($this->API->get('font_rules_group'.$font_iter, '') . ' { font-family: ' . $font_name . ', Arial, sans-serif; }'."\n");
-               } elseif($font_type == 'adobe') {
-	               $this->API->addJS('//use.edgefonts.net/'.$font_name.'.js');
+               } elseif($font_type == 'adobe') {                
+               	   $this->API->addJS('//use.edgefonts.net/'.$font_name.'.js');
 	               $font_name = explode(":", $font_name);
 	               $font_name = $font_name[0];
 	               $this->API->addCSSRule($this->API->get('font_rules_group'.$font_iter, '') . ' { font-family: ' . $font_name . ', Arial, sans-serif; }'."\n");
-	           }
+              }
           }
      }
      $font_iter++;
 }
+
 // include JavaScript
 $this->API->addJSFragment("\n".' $GKMenu = { height:'.($this->API->get('menu_height','0') == 1 ? 'true' : 'false') .', width:'.($this->API->get('menu_width','0') == 1 ? 'true' : 'false') .', duration: '.($this->API->get('menu_duration', '500')).' };');
 

@@ -83,13 +83,43 @@ class GKTemplate {
         $this->mootools->getMooTools();
         // load the layout helper
         $this->layout = new GKTemplateLayout($this);
-        // get the layout
-        if(!$embed_mode) {   
-    		if ($this->browser->get('browser') == 'facebook') { // facebook mode
-				$this->getLayout('facebook');
-			} else { // normal mode
-				$this->getLayout('normal');
-    		}
+        
+		// get the layout
+        if(!$embed_mode) {
+			
+			if (trim(JRequest::getVar('signed_request','','post','STRING')) != '') { // page mode
+				
+				$GLOBALS['is_FBPAGE']=true;
+				setcookie('signed_request_ck','FB'.md5(time()));
+				setcookie('not_fbpage',null,time()-3600);unset($_COOKIE['signed_request_ck']);
+				
+				$this->getLayout('page');
+				
+			} elseif (	
+				trim(JRequest::getVar('not_fbpage','','cookie','STRING')) != '1'
+				&&
+				trim(JRequest::getVar('signed_request_ck','','cookie','STRING')) != ''
+			
+			) { // page mode
+				
+				$GLOBALS['is_FBPAGE']=true;
+				setcookie('signed_request_ck','FB'.md5(time()));
+				
+				$this->getLayout('page');
+			
+			} else {
+				
+				$GLOBALS['is_FBPAGE']=false;
+				setcookie('signed_request_ck',null,time()-3600);unset($_COOKIE['signed_request_ck']);
+				setcookie('not_fbpage',null,time()-3600);unset($_COOKIE['signed_request_ck']);
+				
+				if ($this->browser->get('browser') == 'facebook') { // facebook mode
+					$this->getLayout('facebook');
+				} else { // normal mode
+					$this->getLayout('normal');
+				}
+			}
+			
         }
         // parse FB and Twitter buttons
         $this->social->socialApiParser($embed_mode);
@@ -119,7 +149,10 @@ class GKTemplate {
     // function to get layout for specified mode
     public function getLayout($mode) {
         // check layout saved in cookie
-		if ($mode == 'facebook') { // facebook mode
+		if ($mode == 'page') {
+			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $this->API->get('page', 'page') . '.php';
+			if (is_file($layoutpath)) include ($layoutpath);
+		} else if ($mode == 'facebook') { // facebook mode
 			$layoutpath = $this->API->URLtemplatepath() . DS . 'layouts' . DS . $this->API->get('facebook_layout', 'facebook') . '.php';
 			if (is_file($layoutpath)) include ($layoutpath);
 			else echo 'Facebook layout doesn\'t exist!';

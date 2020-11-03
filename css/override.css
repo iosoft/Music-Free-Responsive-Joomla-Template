@@ -9,3 +9,571 @@
 */
 
 /* Here you can include your override CSS styles */
+
+@font-face {
+    font-family: 'GHz-font';
+    src: url('//cdn.gigahertz.net.in/fonts/Boron-Regular.eot');
+    src: url('//cdn.gigahertz.net.in/fonts/Boron-Regular.eot?#iefix') format('embedded-opentype'),
+        url('//cdn.gigahertz.net.in/fonts/Boron-Regular.woff2') format('woff2'),
+        url('//cdn.gigahertz.net.in/fonts/Boron-Regular.woff') format('woff'),
+        url('//cdn.gigahertz.net.in/fonts/Boron-Regular.ttf') format('truetype'),
+        url('//cdn.gigahertz.net.in/fonts/Boron-Regular.svg#Boron-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.ghz-font, .GHz-font, .GHz-Font {font-family: 'GHz-font' !important; font-weight:normal; font-style:normal;}
+
+* {outline:0 !important;}
+
+body, html {
+	min-height:0;
+}
+
+body {
+	-webkit-background-size: cover;
+	 -moz-background-size: cover;
+	  -o-background-size: cover;
+	   background-size: cover;
+
+	background-repeat:no-repeat;
+	background-position:center;
+	background-attachment: fixed;
+	background-color:#222; /* #F5F5F5 */
+}
+
+#bgDiv {
+	-webkit-background-size: cover;
+	 -moz-background-size: cover;
+	  -o-background-size: cover;
+	   background-size: cover;
+
+	background-repeat:no-repeat;
+	background-position:center;
+	background-attachment: fixed;
+	background-color:#F5F5F5;
+
+	position:fixed;top:0;left:0;
+	height:100%;width:100%;
+}
+
+/*
+@media only screen and (max-width: 480px) {
+	body {background-image:none !important;background-color:#222 !important;}
+}
+*/
+@media only screen and (max-width: 800px) {
+	body {background-image:none !important;background-color:#222 !important;}
+}
+
+
+
+textarea, input[type="text"], input[type="password"], input[type="url"], input[type="email"] {
+    line-height:normal !important;
+}
+
+#system-message dd {margin:auto;}
+
+#pageContainer {
+	z-index:100;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	 filter:alpha(opacity=100);
+	  opacity:1.0;
+}
+
+#gkPageTop #gkLogo
+{
+    padding-left:5px;
+    margin-right: 10px;
+    height: 50px;
+}
+#gkPageTop a.logo
+{
+	margin-right:10px;
+}
+#gkPageTop a.logo img
+{
+	border:0;
+}
+
+#gkPageTop #gkLogo span, #gkPageTop #gkLogo small
+{
+	text-align:left;
+}
+@media only screen and (max-width: 480px) {
+	
+	#gkPageTop a.logo {margin-right:10px !important;}
+
+	#gkPageTop a.text {padding:0 !important; margin:0 15px 0 0 !important; height:50px;}
+	
+	#gkPageTop #gkLogo small {font-size:5px;}
+
+	#gkPageTop #gkUserLinks {padding-left:15px; padding-right:0 !important;}
+}
+
+
+#gkPageTop #gkMainMenu
+{
+    left:0px;
+}
+#gkPageTop #gkUserLinks, #gkFooter p
+{
+    padding-right:15px;
+}
+
+#gkToolbar .search
+{
+    padding-top:5px;
+    width:150px;
+    float:left;
+}
+#gkToolbar ul
+{
+    padding-left:5px;
+}
+#gkToolbar .social
+{
+    padding-right:15px;
+}
+#gkToolbar .social p
+{
+    margin:0px;
+}
+#gkToolbar .social p a
+{
+	-webkit-transition: color 0.2s linear;
+	 -moz-transition: color 0.2s linear;
+	  -ms-transition: color 0.2s linear;
+	   -o-transition: color 0.2s linear;
+	    transition: color 0.2s linear;
+}
+
+#loginForm ul.ul-jlslogin 	{margin-bottom:15px;}
+#loginForm ul.ul-jlslogin li a	{text-transform:capitalize;font-size:13px;}
+
+/*************  MENU  *************/
+
+.menu .pr-news img, .menu .pr-newswire img {float:left; margin-right:5px;margin-top:-2px;}
+
+/*************  PAGE NAV  *************/
+
+ul.pagenav 
+{
+	margin-left:0 !important;
+}
+ul.pagenav li
+{
+	list-style:none;
+	list-style-type:none;
+	background:none !important;
+	padding:0;
+}
+ul.pagenav li.pagenav-prev
+{
+	float:left;
+	padding-left:0 !important;
+}
+
+.userdata #form-login-password label, .userdata #form-login-username label
+{
+    width:100% !important;
+}
+
+#modlgn-username.inputbox, #modlgn-passwd.inputbox
+{
+    height:35px !important;
+    padding:0px 12px !important;
+    line-height:normal !important;
+}
+
+/*************  SIDEBAR  *************/
+
+.masonry > div.box {_width:285px !important;}
+
+/*************  FORUM  *************/
+
+body.forum-169 #Kunena .kcategories-83 {display:none;}	/* hide Support category */
+
+#Kunena {}
+
+#Kunena .kbutton {line-height:normal;}
+
+.kcol-ktopicicon img {
+	max-width:none;
+}
+
+#Kunena #kpopsubstats-tbody .kcol-mid img.kstats-bar {
+	height:10px !important;
+}
+
+
+#Kunena .krow1icon .kcol-category-icon span.kicon, 
+#Kunena .krow2icon .kcol-category-icon span.kicon,
+#Kunena .krow1i8 .kcol-category-icon span.kicon,
+#Kunena .krow2i8 .kcol-category-icon span.kicon 
+{
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+    width: 32px; height:32px;
+}
+
+#Kunena span.kreadforum, #Kunena span.knotloginforum {background-image:url("/media/kunena/category_images/folder_nonew.png");}
+#Kunena span.kreadforum-sm, #Kunena span.knotloginforum-sm{background-image:url("/media/kunena/category_images/folder_nonew_sm.png");}
+#Kunena span.kunreadforum {background-image:url("/media/kunena/category_images/folder.png");}
+#Kunena span.kunreadforum-sm{background-image:url("/media/kunena/category_images/folder_sm.png");}
+
+#Kunena .icon-customer .kcol-category-icon span.kicon {
+	background-image: url("/media/kunena/category_images/who_is_online.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-customer-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-customer-gray.png");
+}
+#Kunena .icon-customer.knew .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-customer.png");
+	background-image: url("/media/kunena/category_images/icons8-customer.png");
+}
+
+#Kunena .icon-processor .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3VfxvS.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-processor-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-processor-gray.png");
+}
+#Kunena .icon-processor.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-processor.png");
+    background-image: url("/media/kunena/category_images/icons8-processor.png");
+}
+
+#Kunena .icon-motherboard .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3VB3qG.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-motherboard-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-motherboard-gray.png");
+}
+#Kunena .icon-motherboard.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-motherboard.png");
+    background-image: url("/media/kunena/category_images/icons8-motherboard.png");
+}
+
+#Kunena .icon-graphicscard .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3VBJXn.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-video-card-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-video-card-gray.png");
+}
+#Kunena .icon-graphicscard.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-video-card.png");
+    background-image: url("/media/kunena/category_images/icons8-video-card.png");
+}
+
+#Kunena .icon-ram .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3Vfn3l.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-memory-slot-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-memory-slot-gray.png");
+}
+#Kunena .icon-ram.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-memory-slot.png");
+    background-image: url("/media/kunena/category_images/icons8-memory-slot.png");
+}
+
+#Kunena .icon-peripherals .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3VfTu9.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-usb-connector-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-usb-connector-gray.png");
+}
+#Kunena .icon-peripherals.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-usb-connector.png");
+    background-image: url("/media/kunena/category_images/icons8-usb-connector.png");
+}
+
+#Kunena .icon-overclocking .kcol-category-icon span.kicon {
+	background-image: url("/media/kunena/category_images/icons8-speed-gray.png");
+}
+#Kunena .icon-overclocking.knew .kcol-category-icon span.kicon {
+    background-image: url("/media/kunena/category_images/icons8-speed.png");
+}
+
+#Kunena .icon-os .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3Vfzy7.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-operating-system-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-operating-system-gray.png");
+}
+#Kunena .icon-os.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-operating-system.png");
+    background-image: url("/media/kunena/category_images/icons8-operating-system.png");
+}
+
+#Kunena .icon-windows .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3VBHzX.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-windows-10-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-windows-10-gray.png");
+}
+#Kunena .icon-windows.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-windows-10.png");
+    background-image: url("/media/kunena/category_images/icons8-windows-10.png");
+}
+
+#Kunena .icon-linux .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3VqpeI.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-linux-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-linux-gray.png");
+}
+#Kunena .icon-linux.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-linux.png");
+    background-image: url("/media/kunena/category_images/icons8-linux.png");
+}
+
+#Kunena .icon-apple .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-apple-logo-gray.png");
+    background-image: url("/media/kunena/category_images/icons8-apple-logo-gray.png");
+}
+#Kunena .icon-apple.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-apple-logo.png");
+    background-image: url("/media/kunena/category_images/icons8-apple-logo.png");
+}
+
+#Kunena .icon-application .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3Vqybt.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-software-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-software-gray.png");
+}
+#Kunena .icon-application.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-software.png");
+    background-image: url("/media/kunena/category_images/icons8-software.png");
+}
+
+#Kunena .icon-pc-games .kcol-category-icon span.kicon {
+    background-image: url("https://iili.io/3Vfoa2.md.png");
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-counter-strike-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-counter-strike-gray.png");
+}
+#Kunena .icon-pc-games.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-counter-strike.png");
+    background-image: url("/media/kunena/category_images/icons8-counter-strike.png");
+}
+
+#Kunena .icon-onlinegaming .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-call-of-duty-warzone-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-call-of-duty-warzone-gray.png");
+}
+#Kunena .icon-onlinegaming.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-call-of-duty-warzone.png");
+    background-image: url("/media/kunena/category_images/icons8-call-of-duty-warzone.png");
+}
+
+#Kunena .icon-game-server .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-thin-client-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-thin-client-gray.png");
+}
+#Kunena .icon-game-server.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-thin-client.png");
+    background-image: url("/media/kunena/category_images/icons8-thin-client.png");
+}
+
+#Kunena .icon-consolegames .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-game-controller-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-game-controller-gray.png");
+}
+#Kunena .icon-consolegames.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-game-controller.png");
+    background-image: url("/media/kunena/category_images/icons8-game-controller.png");
+}
+
+#Kunena .icon-mobilegaming .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-visual-game-boy-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-visual-game-boy-gray.png");
+}
+#Kunena .icon-mobilegaming.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-visual-game-boy.png");
+    background-image: url("/media/kunena/category_images/icons8-visual-game-boy.png");
+}
+
+#Kunena .icon-network .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-load-balancer-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-load-balancer-gray.png");
+}
+#Kunena .icon-network.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-load-balancer.png");
+    background-image: url("/media/kunena/category_images/icons8-load-balancer.png");
+}
+
+#Kunena .icon-providers .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-network-drive-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-network-drive-gray.png");
+}
+#Kunena .icon-providers.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-network-drive.png");
+    background-image: url("/media/kunena/category_images/icons8-network-drive.png");
+}
+
+#Kunena .icon-security .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-security-lock-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-security-lock-gray.png");
+}
+#Kunena .icon-security.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-security-lock.png");
+    background-image: url("/media/kunena/category_images/icons8-security-lock.png");
+}
+
+#Kunena .icon-hacking .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-hacking-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-hacking-gray.png");
+}
+#Kunena .icon-hacking.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-hacking.png");
+    background-image: url("/media/kunena/category_images/icons8-hacking.png");
+}
+
+#Kunena .icon-bitcoin .kcol-category-icon span.kicon {
+	background-image: url("/media/kunena/category_images/icons8-coin-in-hand-gray.png");
+}
+#Kunena .icon-bitcoin.knew .kcol-category-icon span.kicon {
+    background-image: url("/media/kunena/category_images/icons8-coin-in-hand-gray");
+}
+
+#Kunena .icon-drone .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-quadcopter-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-quadcopter-gray.png");
+}
+#Kunena .icon-drone.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-quadcopter.png");
+    background-image: url("/media/kunena/category_images/icons8-quadcopter.png");
+}
+
+#Kunena .icon-mobile .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-android-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-android-gray.png");
+}
+#Kunena .icon-mobile.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-android.png");
+    background-image: url("/media/kunena/category_images/icons8-android.png");
+}
+
+#Kunena .icon-camera .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-vintage-camera-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-vintage-camera-gray.png");
+}
+#Kunena .icon-camera.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-vintage-camera.png");
+    background-image: url("/media/kunena/category_images/icons8-vintage-camera.png");
+}
+
+#Kunena .icon-vr-ar .kcol-category-icon span.kicon {
+	background-image: url("/media/kunena/category_images/icons8-virtual-reality-gray.png");
+}
+#Kunena .icon-vr-ar.knew .kcol-category-icon span.kicon {
+    background-image: url("/media/kunena/category_images/icons8-virtual-reality.png");
+}
+
+#Kunena .icon-consumer .kcol-category-icon span.kicon {
+	background-image: url("/media/kunena/category_images/icons8-electrical-gray.png");
+}
+#Kunena .icon-consumer.knew .kcol-category-icon span.kicon {
+    background-image: url("/media/kunena/category_images/icons8-electrical.png");
+}
+
+#Kunena .icon-coding .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-notepad++-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-notepad++-gray.png");
+}
+#Kunena .icon-coding.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-notepad++.png");
+    background-image: url("/media/kunena/category_images/icons8-notepad++.png");
+}
+
+#Kunena .icon-java .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-java-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-java-gray.png");
+}
+#Kunena .icon-java.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-java.png");
+    background-image: url("/media/kunena/category_images/icons8-java.png");
+}
+
+#Kunena .icon-microsoft .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-microsoft-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-microsoft-gray.png");
+}
+#Kunena .icon-microsoft.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-microsoft.png");
+    background-image: url("/media/kunena/category_images/icons8-microsoft.png");
+}
+
+#Kunena .icon-iot .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-raspberry-pi-zero-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-raspberry-pi-zero-gray.png");
+}
+#Kunena .icon-iot.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-raspberry-pi-zero.png");
+    background-image: url("/media/kunena/category_images/icons8-raspberry-pi-zero.png");
+}
+
+#Kunena .icon-interview .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-collaboration-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-collaboration-gray.png");
+}
+#Kunena .icon-interview.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-collaboration.png");
+    background-image: url("/media/kunena/category_images/icons8-collaboration.png");
+}
+
+#Kunena .icon-show-off .kcol-category-icon span.kicon {
+	background-image: url("/media/kunena/category_images/icons8-trophy-gray.png");
+}
+#Kunena .icon-show-off.knew .kcol-category-icon span.kicon {
+    background-image: url("/media/kunena/category_images/icons8-trophy.png");
+}
+
+#Kunena .icon-small-talk .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-talk-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-talk-gray.png");
+}
+#Kunena .icon-small-talk.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-talk.png");
+    background-image: url("/media/kunena/category_images/icons8-talk.png");
+}
+
+#Kunena .icon-market .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-shop-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-shop-gray.png");
+}
+#Kunena .icon-market.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-shop.png");
+    background-image: url("/media/kunena/category_images/icons8-shop.png");
+}
+
+#Kunena .icon-hot-deals .kcol-category-icon span.kicon {
+	background-image: url("/media/kunena/category_images/icons8-hot-price-gray.png");
+}
+#Kunena .icon-hot-deals.knew .kcol-category-icon span.kicon {
+    background-image: url("/media/kunena/category_images/icons8-hot-price.png");
+}
+
+#Kunena .icon-buyingadvice .kcol-category-icon span.kicon {
+	background-image: url("/media/kunena/category_images/icons8-doctor-male-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-help-gray.png");
+}
+#Kunena .icon-buyingadvice.knew .kcol-category-icon span.kicon {
+    background-image: url("/media/kunena/category_images/icons8-doctor-male.png");
+    background-image: url("/media/kunena/category_images/icons8-help.png");
+}
+
+#Kunena .icon-close .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-close-sign.png");
+	background-image: url("/media/kunena/category_images/icons8-close-sign.png");
+}
+
+#Kunena .icon-feedback .kcol-category-icon span.kicon {
+	background-image: url("https://cdn.gigahertz.net.in/icons/icons8-feedback-gray.png");
+	background-image: url("/media/kunena/category_images/icons8-feedback-gray.png");
+}
+#Kunena .icon-feedback.knew .kcol-category-icon span.kicon {
+    background-image: url("https://cdn.gigahertz.net.in/icons/icons8-feedback.png");
+    background-image: url("/media/kunena/category_images/icons8-feedback.png");
+}
+
+#Kunena .kfooter {text-align:right;}
+
+/************* EXABYTE *************/
+
+.exabyte form textarea {padding:12px !important;}
+
+.exabyte .box .newsfeed .newsfeed-item h4.feed-link {font-size:100% !important;}
+
+/* EOF */

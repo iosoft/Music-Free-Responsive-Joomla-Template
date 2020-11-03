@@ -9,6 +9,8 @@
 
 defined('_JEXEC') or die;
 JHtml::_('behavior.keepalive');
+JHtml::stylesheet('slogin.css', 'modules/mod_slogin/tmpl/compact/');
+JHtml::script('slogin.js', 'modules/mod_slogin/media/');
 ?>
 <section class="login<?php echo $this->pageclass_sfx?>">
 	<?php if($this->params->get('show_page_heading') || (($this->params->get('logindescription_show') == 1 && str_replace(' ', '', $this->params->get('login_description')) != '') || $this->params->get('login_image') != '')) : ?>
@@ -31,9 +33,38 @@ JHtml::_('behavior.keepalive');
 		</div>
 		<?php endif ; ?>
 	</header>
+	<?php else: ?>
+		<h3>Sign In</h3>
 	<?php endif; ?>
+	
+	<noindex>
+	<div id="slogin-buttons" class="slogin-buttons <?php echo $moduleclass_sfx?>">
+		<?php 
+		$dispatcher = JDispatcher::getInstance();
+		JPluginHelper::importPlugin('slogin_auth');
+		$plugins = array();
+		$callbackUrl = '&return='.base64_encode($this->params->get('login_redirect_url', $this->form->getValue('return')));
+		$dispatcher->trigger('onCreateSloginLink', array(&$plugins,	$callbackUrl));
+		?>
 
-	<form action="<?php echo JRoute::_('index.php?option=com_users&task=user.login'); ?>" method="post">
+		<?php if (count($plugins)): ?>
+			<?php
+			foreach($plugins as $link):
+				$linkParams = '';
+				if(isset($link['params'])){
+					foreach($link['params'] as $k => $v){
+						$linkParams .= ' ' . $k . '="' . $v . '"';
+					}
+				}
+				?>
+				<a rel="nofollow" <?php echo $linkParams;?> href="<?php echo JRoute::_($link['link']);?>"><span class="<?php echo $link['class'];?>">&nbsp;</span></a>
+			<?php endforeach; ?>
+		<?php endif; ?>
+	</div>
+	</noindex>
+	<div class="slogin-clear"></div>
+	
+	<form action="<?php echo JRoute::_('index.php?option=com_users&task=user.login'); ?>" method="post" id="login-form">
 		<fieldset>
 			<?php foreach ($this->form->getFieldset('credentials') as $field): ?>
 				<?php if (!$field->hidden): ?>
@@ -43,8 +74,19 @@ JHtml::_('behavior.keepalive');
 				</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
+			
+			<?php if (JPluginHelper::isEnabled('system', 'remember')) : ?>
+				<p id="form-login-remember">
+				<label for="modlgn-remember">
+					<input id="modlgn-remember" type="checkbox" name="remember" class="inputbox" value="yes"/>
+					<?php echo JText::_('JGLOBAL_REMEMBER_ME') ?>
+				</label>
+				</p>
+				<div class="slogin-clear"></div>
+			<?php endif; ?>
+			
 			<button type="submit" class="button"><?php echo JText::_('JLOGIN'); ?></button>
-			<gavern:fblogin><span id="fb-auth"><small>fb icon</small><?php echo JText::_('TPL_GK_LANG_FB_LOGIN_TEXT'); ?></span><gavern:fblogin>
+			
 			<input type="hidden" name="return" value="<?php echo base64_encode($this->params->get('login_redirect_url', $this->form->getValue('return'))); ?>" />
 			<?php echo JHtml::_('form.token'); ?>
 		</fieldset>

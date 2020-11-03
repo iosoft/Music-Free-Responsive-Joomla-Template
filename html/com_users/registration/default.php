@@ -13,7 +13,7 @@ JHtml::_('behavior.formvalidation');
 	</header>
 	<?php endif; ?>
 
-	<form id="member-registration" action="<?php echo JRoute::_('index.php?option=com_users&task=registration.register'); ?>" method="post" class="form-validate">
+	<form id="member-registration" action="<?php echo JRoute::_('index.php?option=com_users&task=registration.register'); ?>" method="post" class="form-validate" enctype="multipart/form-data">
 	<?php foreach ($this->form->getFieldsets() as $fieldset): // Iterate through the form fieldsets and display each one.?>
 		<?php $fields = $this->form->getFieldset($fieldset->name);?>
 		<?php if (count($fields)):?>
@@ -32,7 +32,18 @@ JHtml::_('behavior.formvalidation');
 					<span class="optional"><?php echo JText::_('COM_USERS_OPTIONAL');?></span>
 				<?php endif; ?>
 				</dt>
-				<dd><?php echo $field->input;?></dd>
+				<dd>
+					<?php echo $field->input;?>
+				</dd>
+				
+				<?php if ($field->name=='jform[password2]'): ?>
+					<dt></dt>
+					<dd style="width:240px;font-size:10px;line-height:12px;">
+						<strong>All passwords are stored in encrypted format</strong>.<br />
+						There is no way to retrieve/decrypt the original password.
+					</dd>
+				<?php endif; ?>	
+				
 			<?php endif;?>
 		<?php endforeach;?>
 			</dl>

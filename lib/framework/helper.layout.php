@@ -79,6 +79,7 @@ class GKTemplateLayout {
     	$iPod = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
     	$iPhone = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
     	$iPad = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+		
     	$tablet_width = $min_content_width;
     	$mobile_width = 480;
     	
@@ -171,20 +172,13 @@ class GKTemplateLayout {
         }   
     }
     
-    // function to check if the page is frontpage
-    function isFrontpage() {
-        // get all known languages
-        $languages	= JLanguage::getKnownLanguages();
-        $menu = JSite::getMenu();
-        
-        foreach($languages as $lang){
-            if ($menu->getActive() == $menu->getDefault( $lang['tag'] )) {
-            	return true;
-            }
-        }
-    	   
-        return false;    
-    }
+	// function to check if the page is frontpage
+	function isFrontpage() {
+	    $app = JFactory::getApplication();
+	    $menu = $app->getMenu();
+	    $lang = JFactory::getLanguage();
+	    return ($menu->getActive() == $menu->getDefault($lang->getTag()));    
+	}
 
 	public function addTemplateFavicon() {
 		$favicon_image = $this->API->get('favicon_image', '');
