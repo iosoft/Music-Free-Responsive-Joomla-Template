@@ -43,19 +43,16 @@
 	width: 100% !important;
 }
 .notablet {
-	display: block!important;
+	display: block;
 }
 .nomobile {
-	display: none!important;
-}
-.onlydesktop {
-	display: none!important;
+	display: none;
 }
 .onlytablet {
-	display: none!important;
+	display: none;
 }
 .onlymobile {
-	display: block!important;
+	display: block;
 }
 
 /* Menu area */

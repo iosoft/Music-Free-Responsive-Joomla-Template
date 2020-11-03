@@ -56,17 +56,16 @@ while($this->API->get('font_name_group'.$font_iter, 'gkFontNull') !== 'gkFontNul
                } elseif($font_type == 'squirrel') {
                     $this->API->addCSS($this->API->URLtemplate() . '/fonts/' . $font_name . '/stylesheet.css');
                     $this->API->addCSSRule($this->API->get('font_rules_group'.$font_iter, '') . ' { font-family: ' . $font_name . ', Arial, sans-serif; }'."\n");
-               } elseif($font_type == 'adobe') {                
-               	   $this->API->addJS('//use.edgefonts.net/'.$font_name.'.js');
+               } elseif($font_type == 'adobe') {
+	               $this->API->addJS('//use.edgefonts.net/'.$font_name.'.js');
 	               $font_name = explode(":", $font_name);
 	               $font_name = $font_name[0];
 	               $this->API->addCSSRule($this->API->get('font_rules_group'.$font_iter, '') . ' { font-family: ' . $font_name . ', Arial, sans-serif; }'."\n");
-              }
+	           }
           }
      }
      $font_iter++;
 }
-
 // include JavaScript
 $this->API->addJSFragment("\n".' $GKMenu = { height:'.($this->API->get('menu_height','0') == 1 ? 'true' : 'false') .', width:'.($this->API->get('menu_width','0') == 1 ? 'true' : 'false') .', duration: '.($this->API->get('menu_duration', '500')).' };');
 

@@ -29,7 +29,6 @@ define('GK_COM_USERS', $option == 'com_users' && ($view == 'login' || $view == '
 // other variables
 $btn_login_text = ($userID == 0) ? JText::_('TPL_GK_LANG_LOGIN') : JText::_('TPL_GK_LANG_LOGOUT');
 $tpl_page_suffix = $this->page_suffix != '' ? ' class="'.$this->page_suffix.'"' : '';
-
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->APITPL->language; ?>">

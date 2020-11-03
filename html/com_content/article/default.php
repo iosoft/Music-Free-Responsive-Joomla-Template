@@ -4,6 +4,7 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT .'/helpers');
+JHtml::_('behavior.caption'); 
 
 // Create shortcuts to some parameters.
 $params = $this->item->params;
@@ -29,7 +30,6 @@ $template_config = new JConfig();
 $uri = JURI::getInstance();
 $article_attribs = json_decode($this->item->attribs, true);
 
-$pin_image = '';
 $og_title = $this->escape($this->item->title);
 $og_type = 'article';
 $og_url = $cur_url;
