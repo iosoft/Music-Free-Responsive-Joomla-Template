@@ -101,7 +101,7 @@ if (!defined('_GK_MENU_CLASS')) {
         }
 
         function genClass($mitem, $level, $pos) {
-            $iParams = new JRegistry($mitem->params);
+            $iParams = new JParameter($mitem->params);
             $cls =  ($pos ? " $pos" : "");
             if (@$this->children[$mitem->id] || (isset($mitem->content) && $mitem->content)) {
                 if ($mitem->gkparams->get('group'))

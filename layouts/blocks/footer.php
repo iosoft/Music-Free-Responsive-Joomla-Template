@@ -3,17 +3,13 @@
 // No direct access.
 defined('_JEXEC') or die;
 
-$app    = JFactory::getApplication();
-$menu 	= $app->getMenu();
-$lang 	= JFactory::getLanguage();
-
 ?>
 
 <footer id="gkFooter">
 	<a href="#gkPageWrap" id="gkTopLink">Top</a>
 	
 	<?php if($this->API->get('framework_logo', '0') == '1') : ?>
-	<a href="https://www.gavick.com/" id="gkFrameworkLogo" title="Gavern Framework">Gavern Framework</a>
+	<a href="//gavick.com" id="gkFrameworkLogo" title="Gavern Framework">Gavern Framework</a>
 	<?php endif; ?>
 	
 	<?php if($this->API->modules('footer_nav')) : ?>
@@ -23,20 +19,11 @@ $lang 	= JFactory::getLanguage();
 	<?php if($this->API->get('copyrights', '') !== '') : ?>
 	<p>
 		<?php echo $this->API->get('copyrights', ''); ?> 
-		<?php if ($menu->getActive() == $menu->getDefault($lang->getTag())) : ?> 
-			<p><a href="https://www.gavick.com/" title="Joomla Templates designed by GavickPro" rel="nofollow">Joomla Templates designed by GavickPro </a></p>
-		<?php else : ?>
-			<p>Joomla Template Design by GavickPro</p>
-		<?php endif; ?>
 	</p>
 	<?php else : ?>
-
-		<?php if ($menu->getActive() == $menu->getDefault($lang->getTag())) : ?> 
-		<p><a href="https://www.gavick.com/" title="Joomla Templates designed by GavickPro" rel="nofollow">Joomla Templates designed by GavickPro </a></p>
-		<?php else : ?>
-			<p>Joomla Template Design by GavickPro</p>
-		<?php endif; ?>
-	
+	<p>
+		Template Design &copy; <a href="//www.gavick.com" title="Joomla Templates">Free Responsive Joomla! Template</a> GavickPro
+	</p>
 	<?php endif; ?>
 	
 	<?php if($this->API->get('stylearea', '0') == '1') : ?>

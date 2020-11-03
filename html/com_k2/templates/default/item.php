@@ -118,20 +118,13 @@ $k2ContainerClasses = (($this->item->featured) ? ' itemIsFeatured' : '') . ($par
 				<?php if($params->get('itemExtraFields') && count($this->item->extra_fields)): ?>
 				<div class="itemExtraFields">
 						<h3><?php echo JText::_('K2_ADDITIONAL_INFO'); ?></h3>
-							  	<ul>
-									<?php foreach ($this->item->extra_fields as $key=>$extraField): ?>
-									<?php if($extraField->value != ''): ?>
-									<li class="<?php echo ($key%2) ? "odd" : "even"; ?> type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?>">
-										<?php if($extraField->type == 'header'): ?>
-										<h4 class="itemExtraFieldsHeader"><?php echo $extraField->name; ?></h4>
-										<?php else: ?>
-										<span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span>
-										<span class="itemExtraFieldsValue"><?php echo $extraField->value; ?></span>
-										<?php endif; ?>
-									</li>
-									<?php endif; ?>
-									<?php endforeach; ?>
-									</ul>
+						<ul>
+								<?php foreach ($this->item->extra_fields as $key=>$extraField): ?>
+								<?php if($extraField->value): ?>
+								<li class="<?php echo ($key%2) ? "odd" : "even"; ?> type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?>"> <span class="itemExtraFieldsLabel"><?php echo $extraField->name; ?>:</span> <span class="itemExtraFieldsValue"><?php echo $extraField->value; ?></span> </li>
+								<?php endif; ?>
+								<?php endforeach; ?>
+						</ul>
 				</div>
 				<?php endif; ?>
 				<?php if($params->get('itemRating') || ($params->get('itemDateModified') && intval($this->item->modified)!=0)): ?>
@@ -204,17 +197,24 @@ $k2ContainerClasses = (($this->item->featured) ? ' itemIsFeatured' : '') . ($par
 								<?php endif; ?>
 								<?php if($params->get('itemFacebookButton',1)): ?>
 								<div class="itemFacebookButton">
-										<div id="fb-root"></div>
-										<script type="text/javascript">
-		                            (function(d, s, id) {
-		                              var js, fjs = d.getElementsByTagName(s)[0];
-		                              if (d.getElementById(id)) {return;}
-		                              js = d.createElement(s); js.id = id;
-		                              js.src = "//connect.facebook.net/en_US/all.js#appId=177111755694317&xfbml=1";
-		                              fjs.parentNode.insertBefore(js, fjs);
-		                            }(document, 'script', 'facebook-jssdk'));
-		                    </script>
-										<div class="fb-like" data-send="false" data-width="260" data-show-faces="true"></div>
+										<script type="text/javascript">                                                         
+										window.addEvent('load', function(){
+										      (function(){
+										                  if(document.id('fb-auth') == null) {
+										                  var root = document.createElement('div');
+										                  root.id = 'fb-root';
+										                  $$('.itemFacebookButton')[0].appendChild(root);
+										                  (function(d, s, id) {
+										                    var js, fjs = d.getElementsByTagName(s)[0];
+										                    if (d.getElementById(id)) {return;}
+										                    js = d.createElement(s); js.id = id;
+										                    js.src = "//connect.facebook.net/en_US/all.js#appId=177111755694317&xfbml=1";
+										                    fjs.parentNode.insertBefore(js, fjs);
+										                  }(document, 'script', 'facebook-jssdk')); 
+										              }
+										      }());
+										  });
+										</script>										<div class="fb-like" data-send="false" data-width="260" data-show-faces="true"></div>
 								</div>
 								<?php endif; ?>
 								<?php if($params->get('itemGooglePlusOneButton',1)): ?>
