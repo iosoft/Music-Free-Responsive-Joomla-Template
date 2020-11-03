@@ -30,9 +30,9 @@ class GKTemplateSocial {
     	// get the variables from the URL
     	$option = JRequest::getCmd('option', '');
     	$view = JRequest::getCmd('view', '');
-    	$id = JRequest::getVar('id', '');
+    	$id = (int) JRequest::getVar('id', '');
     	if(strpos($id, ':')) $id = substr($id, 0, strpos($id, ':')); 
-    	$catid = JRequest::getVar('catid', '');
+    	$catid = (int) JRequest::getVar('catid', '');
     	if(strpos($catid, ':')) $catid = substr($catid, 0, strpos($catid, ':'));
 
 		// find catid if it is not set in the URL
@@ -138,8 +138,7 @@ class GKTemplateSocial {
     	GKParser::$customRules['/<meta name="og:/'] = '<meta property="og:';
     }
     
-    public function googleAnalyticsParser(){
-	    	$config = JFactory::getConfig();
+	public function googleAnalyticsParser(){
 		$data = $this->parent->API->get('google_analytics','');
 		$exploded_data = explode("\r\n", $data);    	
 		$script_code = '';
@@ -155,7 +154,7 @@ class GKTemplateSocial {
                             $script_code .= '<script type="text/plain" class="cc-onconsent-analytics">';
                         }
                         
-                        $script_code .= 'var _gaq = _gaq || []; _gaq.push([\'_setDomainName\', \'' .$config->get('cookie_domain', $_SERVER["HTTP_HOST"]).  '\']); _gaq.push([\'_setAccount\', \'' .$key. '\']); _gaq.push([\'_trackPageview\']); (function() { var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s); })();</script>';
+                        $script_code .= 'var _gaq = _gaq || []; _gaq.push([\'_setAccount\', \'' .$key. '\']); _gaq.push([\'_trackPageview\']);(function() { var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s); })();</script>';
 			        }
 			    }
 			}

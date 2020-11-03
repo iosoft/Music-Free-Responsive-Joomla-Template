@@ -183,7 +183,7 @@ ul.gkSquare1 li,
 ul.gkSquare2 li,
 div.articleContent ul li,
 #k2Container .itemFullText ul li,
-#k2Container .itemIntroText ul li{
+#k2Container .itemIntroText ul li {
 	line-height: 1.8em !important;
 	list-style: none;
 	margin: 0 !important;

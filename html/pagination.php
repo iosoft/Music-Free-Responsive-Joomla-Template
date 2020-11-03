@@ -11,32 +11,32 @@ function pagination_list_render($list) {
 	$html .= '<li class="pagination-start">'.$list['start']['data'].'</li>';
 	$html .= '<li class="pagination-prev">'.$list['previous']['data'].'</li>';
 	
-	// search for the active page
-	$founded = 0;
-	
-	foreach($list['pages'] as $page) {
-		$founded++;
+	if(count($list['pages']) >= 7) {
+		$founded = false;
 		
-		if($page['active'] != 1) {
-			break;
+		for($i = 1; $i <= count($list['pages']); $i++) {
+			if($list['pages'][$i]['active'] != 1) {
+				$founded = $i;
+				break;
+			}
 		}
-	}
-	// show only 7 pages - active, 3 before and 3 after
-	$iterator = 0;
-	
-	foreach($list['pages'] as $page) {
-		$iterator++;
 		
-		if($founded > 3 && $founded < 8) {
-			if($iterator >= $founded - 3 && $iterator <= $founded + 3) {
-				$html .= '<li>'.$page['data'].'</li>';
+		for($i = 1; $i <= count($list['pages']); $i++) {
+			if($i == 1 && $founded > $i + 2) {
+				$html .= '<li><span>&hellip;</span></li>';
 			}
-		} else if($founded <= 3 || $founded >= 8) {
-			if($founded <= 3 && $iterator <= 7) {
-				$html .= '<li>'.$page['data'].'</li>';
-			} else if($founded >= 8 && $iterator > 3) {
-				$html .= '<li>'.$page['data'].'</li>';
+			
+			if($i == count($list['pages']) && $founded < $i - 2) {
+				$html .= '<li><span>&hellip;</span></li>';
 			}
+			
+			if($i >= $founded - 2 && $i <= $founded + 2) {
+				$html .= '<li>'.$list['pages'][$i]['data'].'</li>';
+			}
+		}
+	} else {
+		for($i = 1; $i <= count($list['pages']); $i++) {
+			$html .= '<li>'.$list['pages'][$i]['data'].'</li>';
 		}
 	}
 	

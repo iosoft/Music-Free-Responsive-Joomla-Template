@@ -2,7 +2,6 @@
 /**
  * @package		Joomla.Site
  * @subpackage	com_weblinks
- * @author		Ayan Debnath
  * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
@@ -14,7 +13,7 @@ defined('_JEXEC') or die;
 $params = &$this->item->params;
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
-JHtml::core();
+JHtml::_('behavior.framework');
 
 // Get the user object.
 $user = JFactory::getUser();
@@ -35,17 +34,17 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 <form action="<?php echo htmlspecialchars(JFactory::getURI()->toString()); ?>" method="post" name="adminForm" id="adminForm">
 	<?php if ($this->params->get('show_pagination_limit')) : ?>
 		<fieldset class="filters">
-			<legend class="hidelabeltxt"><?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?></legend>
-			<div class="display-limit">
-				<?php echo JText::_('JGLOBAL_DISPLAY_NUM'); ?>&#160;
-				<?php echo $this->pagination->getLimitBox(); ?>
-			</div>
-			<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
-			<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
+		<legend class="hidelabeltxt"><?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?></legend>
+		<div class="display-limit">
+			<?php echo JText::_('JGLOBAL_DISPLAY_NUM'); ?>&#160;
+			<?php echo $this->pagination->getLimitBox(); ?>
+		</div>
+		<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
+		<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
 		</fieldset>
 	<?php endif; ?>
 
-	<table border="0">
+	<table>
 		<?php if ($this->params->get('show_headings')==1) : ?>
 
 		<thead><tr>
@@ -63,7 +62,6 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 	<?php endif; ?>
 	<tbody>
 	<?php foreach ($this->items as $i => $item) : ?>
-		<?php  //print_r($item); ?>
 		<?php if ($this->items[$i]->state == 0) : ?>
 			<tr class="system-unpublished cat-list-row<?php echo $i % 2; ?>">
 		<?php else: ?>
@@ -73,7 +71,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			<td class="title">
 			<p>
 				<?php if ($this->params->get('icons') == 0) : ?>
-					 <?php //echo JText::_('COM_WEBLINKS_LINK'); ?>
+					 <?php echo JText::_('COM_WEBLINKS_LINK'); ?>
 				<?php elseif ($this->params->get('icons') == 1) : ?>
 					<?php if (!$this->params->get('link_icons')) : ?>
 						<?php echo JHtml::_('image', 'system/'.$this->params->get('link_icons', 'weblink.png'), JText::_('COM_WEBLINKS_LINK'), NULL, true); ?>
@@ -125,23 +123,10 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			<?php if (($this->params->get('show_link_description')) and ($item->description !='')): ?>
 				<?php echo $item->description; ?>
 			<?php endif; ?>
-			
-			<div>
-				<?php if ($this->params->get('show_link_hits')) : ?>
-				<div class="hits">
-					<?php echo $item->hits; ?> Hits
-				</div>
-				<?php endif; ?>
-				<div class="comments">
-					<?php JHtml::_('behavior.modal', 'a.modal'); ?>
-					<a href="#" class="modal" onclick="showBBcommentBox('<?php echo trim($item->url);?>');"><div class="fb-comments-count" data-href="<?php echo trim($item->url);?>" style="display:inline;">0</div> Comments</a>
-				</div>
-			</div>
-			
 		</td>
 		<?php if ($this->params->get('show_link_hits')) : ?>
 		<td class="hits">
-			
+			<?php echo $item->hits; ?>
 		</td>
 		<?php endif; ?>
 	</tr>
@@ -149,29 +134,8 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 </tbody>
 </table>
 
-<?php if ($this->params->get('show_pagination')) : ?>
-	<?php echo str_replace('</ul>', '<li class="counter">'.$this->pagination->getPagesCounter().'</li>', $this->pagination->getPagesLinks()); ?>
-<?php endif; ?>
+		<?php if ($this->params->get('show_pagination')) : ?>
+		<?php echo str_replace('</ul>', '<li class="counter">'.$this->pagination->getPagesCounter().'</li>', $this->pagination->getPagesLinks()); ?>
+		<?php endif; ?>
 </form>
-
-<div id="fBcommentBox" style="display:none;"></div>
-<script type="text/javascript">
-function showBBcommentBox(url) {
-	
-	var content=document.id('fBcommentBox');
-	var fBcommentDiv = new Element('div', {
-		'data-href': url,
-		'data-numposts': '10',
-		'data-colorscheme': 'light',
-		'class': 'fb-comments',
-		'html': 'FB'
-	}).injectInside(content);
-	//fBcommentDiv.inject(content, 'after');
-	
-	FB.XFBML.parse();
-	
-	alert(url);
-	return false;
-}
-</script>
 <?php endif; ?>
